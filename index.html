@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Kenzie Umpad's To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>📝 John Kenzie Umpad</h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-list main-nav">
+                    <li class="nav-item active" data-filter="all">
+                        <span class="nav-icon">📋</span>
+                        <span class="nav-text">All Tasks</span>
+                        <span class="nav-count" id="count-all">0</span>
+                    </li>
+                    <li class="nav-item" data-filter="today">
+                        <span class="nav-icon">☀️</span>
+                        <span class="nav-text">My Day</span>
+                        <span class="nav-count" id="count-today">0</span>
+                    </li>
+                    <li class="nav-item" data-filter="important">
+                        <span class="nav-icon">⭐</span>
+                        <span class="nav-text">Important</span>
+                        <span class="nav-count" id="count-important">0</span>
+                    </li>
+                    <li class="nav-item" data-filter="completed">
+                        <span class="nav-icon">✅</span>
+                        <span class="nav-text">Completed</span>
+                        <span class="nav-count" id="count-completed">0</span>
+                    </li>
+                </ul>
+
+                <div class="lists-section">
+                    <div class="lists-header">
+                        <h3>MY LISTS</h3>
+                        <button id="addListBtn" class="add-list-btn" aria-label="Create new list" title="Create new list">＋</button>
+                    </div>
+                    <ul id="customLists" class="nav-list custom-lists">
+                        <!-- Custom lists will be added here -->
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle light/dark mode">
+                    <span id="themeIcon">🌙</span> <span class="theme-text">Dark Mode</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <button id="menuBtn" class="menu-btn" aria-label="Toggle Menu">☰</button>
+                <div class="header-text">
+                    <h1 id="currentViewTitle">All Tasks</h1>
+                    <p id="currentDate" class="date-display"></p>
+                </div>
+            </header>
+
+            <div class="input-section" id="inputSection">
+                <div class="input-wrapper">
+                    <span class="input-icon">＋</span>
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        class="task-input" 
+                        placeholder="Add a task..."
+                        aria-label="Task input field"
+                    >
+                    <button id="addBtn" class="add-btn" aria-label="Add task button">Add</button>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="error-message" aria-live="polite"></div>
+
+            <div class="tasks-container">
+                <ul id="taskList" class="task-list">
+                    <!-- Tasks will be injected here -->
+                </ul>
+                
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-illustration">📝</div>
+                    <p id="emptyStateText">No tasks found</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Mobile Sidebar Overlay -->
+        <div id="sidebarOverlay" class="sidebar-overlay"></div>
+    </div>
+
+    <!-- Modal for New List -->
+    <div id="listModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeListModal">&times;</button>
+            <h2>Create New List</h2>
+            <input type="text" id="listNameInput" class="list-input" placeholder="List Name (e.g., Groceries)">
+            <button id="saveListBtn" class="primary-btn">Create List</button>
+            <div id="listModalError" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Fun UFO Animation (Fixed Structure) -->
+    <div class="ufo-fleet" aria-hidden="true">
+        <!-- UFO 1 -->
+        <div class="ufo-wrapper ufo-1">
+            <div class="ufo-vertical">
+                <div class="ufo-inner">🛸</div>
+            </div>
+        </div>
+        
+        <!-- UFO 2 -->
+        <div class="ufo-wrapper ufo-2">
+            <div class="ufo-vertical">
+                <div class="ufo-inner">🛸</div>
+            </div>
+        </div>
+        
+        <!-- UFO 3 -->
+        <div class="ufo-wrapper ufo-3">
+             <div class="ufo-vertical">
+                <div class="ufo-inner">🛸</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
